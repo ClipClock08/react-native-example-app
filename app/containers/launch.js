@@ -20,6 +20,14 @@ export default Launch = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.btn}
+        onPress={Actions.statistics}>
+        <Text
+          style={styles.btnText}>
+          Statistics
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btn}
         onPress={Actions.about}>
         <Text
           style={styles.btnText}>

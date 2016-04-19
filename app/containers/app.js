@@ -8,6 +8,7 @@ import * as reducers from '../reducers';
 import CounterApp from './counterApp';
 import Launch from './launch';
 import About from './about';
+import Statistics from './statistics';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
@@ -36,6 +37,10 @@ export default class App extends Component {
             name="about"
             component={About}
             title="About"/>
+          <Route
+            name="statistics"
+            component={Statistics}
+            title="Statistics"/>
         </Router>
       </Provider>
     );
