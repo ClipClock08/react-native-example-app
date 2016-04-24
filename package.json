@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "lodash": "^4.11.1",
     "react-native": "^0.21.0",
     "react-native-router-flux": "^2.3.10",
     "react-redux": "^4.4.0",

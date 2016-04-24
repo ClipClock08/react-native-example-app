@@ -11,10 +11,11 @@ export default About = (props) => {
   return (
     <View
       style={styles.container}>
-      <Text>React Native boilerplate</Text>
+      <Text>React Native example app</Text>
       <Text>Dependences:</Text>
       <Text>Redux</Text>
       <Text>React Native Router Flux</Text>
+      <Text>Lodash</Text>
       <TouchableOpacity
         style={styles.btn}
         onPress={Actions.pop}>
@@ -42,4 +43,4 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#0086b3'
   }
-})
+});

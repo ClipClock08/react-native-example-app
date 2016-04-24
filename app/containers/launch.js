@@ -2,41 +2,46 @@ import React, {
   View,
   Text,
   StyleSheet,
+  Component,
   TouchableOpacity
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
+import {bindActionCreators} from 'redux';
+import * as healthActions from '../actions/healthActions';
+import { connect } from 'react-redux';
 
-export default Launch = (props) => {
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={Actions.counter}>
-        <Text
-          style={styles.btnText}>
-          Counter
+import Health from '../services/health';
+
+class Launch extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    Health().then((data) => {
+      this.props.actions.update(data);
+      Actions.main();
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>
+          Loading ...
         </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={Actions.statistics}>
-        <Text
-          style={styles.btnText}>
-          Statistics
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={Actions.about}>
-        <Text
-          style={styles.btnText}>
-          About
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
+      </View>
+    );
+  }
 }
+
+export default connect(state => ({
+  }),
+  (dispatch) => ({
+    actions: bindActionCreators(healthActions, dispatch)
+  })
+)(Launch);
 
 const styles = StyleSheet.create({
   container: {
@@ -44,15 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  btn: {
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    borderColor: '#0086b3',
-    borderWidth: 1,
-    borderRadius: 4,
-    marginTop: 10
-  },
-  btnText: {
-    color: '#0086b3'
+  text: {
+    fontSize: 20
   }
-});
+})

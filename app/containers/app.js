@@ -6,6 +6,7 @@ import ReactNativeRouter, { Route, Schema } from 'react-native-router-flux';
 
 import * as reducers from '../reducers';
 import CounterApp from './counterApp';
+import Main from './main';
 import Launch from './launch';
 import About from './about';
 import Statistics from './statistics';
@@ -29,6 +30,10 @@ export default class App extends Component {
             initial={true}
             wrapRouter={true}
             title="Launch"/>
+          <Route
+            name="main"
+            component={Main}
+            title="Main"/>
           <Route
             name="counter"
             component={CounterApp}

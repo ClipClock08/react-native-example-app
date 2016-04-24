@@ -7,6 +7,12 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import com.awesomeproject.pedometer.StepCounterService;
+import com.awesomeproject.pedometer.StepCounterOldService;
+
+import android.os.Bundle;
+import android.content.Intent;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -34,7 +40,21 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+            new MainReactPackage(),
+            new RNPedometerPackage(this)
         );
+    }
+
+    @Override
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        Boolean can = StepCounterOldService.deviceHasStepCounter(this.getPackageManager());
+        if (!can) {
+            startService(new Intent(this, StepCounterService.class));
+        } else {
+            startService(new Intent(this, StepCounterOldService.class));
+        }
+
+
     }
 }
