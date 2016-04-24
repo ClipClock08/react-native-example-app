@@ -1,12 +1,13 @@
-# React Native Boilerplate
+# React Native Example App
 
-This is a boilerplate project with react native router and predictable state container.
+This is a boilerplate project with react native router and predictable state container which includes simple bar chart and pedometer.
 ### Dependencies
 
 - [Redux](https://github.com/reactjs/redux)
 - [React Redux](https://github.com/reactjs/react-redux)
 - [Redux Thunk](https://github.com/gaearon/redux-thunk)
 - [React Native Router](https://github.com/aksonov/react-native-router-flux)
+- [Lodash](https://lodash.com/)
 
 ### Requirements
 
@@ -19,11 +20,11 @@ This is a boilerplate project with react native router and predictable state con
 ### Installation
 
 Clone repository:
-```
+```sh
 git clone git@github.com:boozzd/react-native-boilerplate.git
 ```
 After run:
-```
+```sh
 npm install
 ```
 
@@ -39,7 +40,7 @@ This will start the React Packager.
 
 ### iOS
 
-Open `ios/AwesomeProject.xcodeproj` in Xcode, build and run the project.
+Open `ios/AwesomeProject.xcodeproj` in Xcode, build and run the project (⌘+R).
 
 ### Android
 
