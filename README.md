@@ -49,3 +49,13 @@ For android development use the following:
 ```sh
 react-native run-android
 ```
+
+### Screenshots
+##### Main screen
+![Main screen](/screenshots/main.png)
+##### Counter screen
+![Counter page](/screenshots/counter.png)
+##### Statistics screen
+![Statistics](/screenshots/statistics.png)
+##### About screen
+![About](/screenshots/about.png)
